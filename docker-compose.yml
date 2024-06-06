@@ -1,0 +1,9 @@
+version: '3.3'
+ 
+services:
+  flask_app:
+    image: lyday25/leadimg
+    ports:
+      - 8009:8009
+    volumes:
+      - ./:/app
