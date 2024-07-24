@@ -13,7 +13,7 @@ pipeline{
             steps{
                 sh 'printenv'
                 sh 'git version'
-                sh 'docker build . -t lyday25/imag1.0'
+                sh 'docker build . -t lyday25/imag2.0'
             }
         }
          stage("push image to DockerHub"){
@@ -24,7 +24,7 @@ pipeline{
                  withCredentials([string(credentialsId: 'DockerID', variable: 'DockerID')]) {
                     sh 'docker login -u lyday25 -p ${DockerID}'
             }
-              sh 'docker push lyday25/imag1.0:latest'
+              sh 'docker push lyday25/imag2.0:latest'
             }
         }
     }
