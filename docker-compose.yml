@@ -2,8 +2,8 @@ version: '3.3'
  
 services:
   flask_app:
-    image: lyday25/leadimg
+    image: "" #enter your application dockerhub image here
     ports:
-      - 8009:8009
+      - 8000:8000
     volumes:
       - ./:/app
