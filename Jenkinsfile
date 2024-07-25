@@ -1,11 +1,11 @@
 pipeline{
     agent any
     stages{
-         stage("GitHub checkout") {
+         stage("GitHub checkout....") {
             steps {
                 script {
  
-                    git branch: 'main', url: 'https://github.com/lyday25/python_flask_app.git' 
+                    git branch: 'main', url: 'https://github.com/clement2019/python_flask_app.git' 
                 }
             }
         }
@@ -13,7 +13,7 @@ pipeline{
             steps{
                 sh 'printenv'
                 sh 'git version'
-                sh 'docker build . -t lyday25/imag2.0'
+                sh 'docker build . -t good777lord/imag2.0'
             }
         }
          stage("push image to DockerHub"){
@@ -22,9 +22,9 @@ pipeline{
                script {
                   
                  withCredentials([string(credentialsId: 'DockerID', variable: 'DockerID')]) {
-                    sh 'docker login -u lyday25 -p ${DockerID}'
+                    sh 'docker login -u good777lord -p ${DockerID}'
             }
-              sh 'docker push lyday25/imag2.0:latest'
+              sh 'docker push good777lord/imag2.0:latest'
             }
         }
     }
