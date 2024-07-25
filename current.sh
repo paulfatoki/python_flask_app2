@@ -1,1 +1,1 @@
-echo "Current date and time: $(date)"
+echo "The Current date and time: $(date)"
