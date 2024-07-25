@@ -1,30 +1,30 @@
 pipeline{
     agent any
     stages{
-         stage("GitHub checkout....") {
+         stage("GitHub checking checkout....") {
             steps {
                 script {
  
-                    git branch: 'main', url: 'https://github.com/clement2019/python_flask_app.git' 
+                    git branch: 'main', url:  'https://github.com/paulfatoki/python_flask_app2.git'
                 }
             }
         }
-        stage("Build docker on going"){
+        stage("Building docker on going"){
             steps{
                 sh 'printenv'
                 sh 'git version'
-                sh 'docker build . -t good777lord/imag2.0'
+                sh 'docker build . -t paulfatoki/imag2.0'
             }
         }
-         stage("push image to DockerHub"){
+         stage("pushing image to DockerHub"){
             steps{
 
                script {
                   
-                 withCredentials([string(credentialsId: 'DockerID', variable: 'DockerID')]) {
-                    sh 'docker login -u good777lord -p ${DockerID}'
+                 withCredentials([string(credentialsId: 'dockerid', variable: 'dockerid')]) {
+                    sh 'docker login -u paulfatoki -p ${dockerid}'
             }
-              sh 'docker push good777lord/imag2.0:latest'
+              sh 'docker push paulfatoki/imag2.0:latest'
             }
         }
     }
